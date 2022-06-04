@@ -1,21 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DETRAN</title>
+    <style>
+        body {
+            font: normal 16px Arial;
+            line-height: 25px;
+            background-color: rgb(90, 90, 167);
+        }
+
+        #txtlim {
+            display: inline;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Sistema de Multas</h1>
+
+    Limite estabelecido: <div id="txtlim"></div>
+    <input id="edtlimite" type="button" value="Editar" onclick="edtlimite()">
+
+    <br>
+
     Velocidade do carro: <input type="number" name="txtvel" id="txtvel">
-    <input type="button" value="Verificar">
+    <input id="botao" type="button" value="Verificar" onclick="verificar()">
+    <div id="txtres"></div>
 
     <script>
-        function verificar(){
-            txtv = document.querySelector('input#txtvel')
-            vel = Number(txtv.innerText)
+        var limite = 60
+        var txtlim = document.querySelector('div#txtlim')
+        txtlim.innerHTML = `<strong>${limite} Km/h</strong>`
+
+        function verificar() {
+            var txtvel = document.querySelector('input#txtvel')
+            var txtres = document.querySelector('div#txtres')
+
+            var velocidade = Number(txtvel.value)
+            txtres.style.color = 'black'
+
+            if (velocidade <= 0 || velocidade == null) {
+                txtres.innerHTML = `Valor digitado é inválido. Tente novamente!`
+            } else {
+                if (velocidade > limite) {
+                    txtres.style.color = 'red'
+                    txtres.innerHTML = `Velocidade acima do limite permitido. <strong>MULTADO!</strong>`
+                }
+                else {
+                    txtres.innerHTML = `Parabéns! Dirija com cuidado!`
+                }
+            }
+        }
+
+        function edtlimite() {
+            var novolimite = Number(window.prompt('Insira a nova velocidade limite'))
+            /* Testando condições:
+            MENSAGEM DE ERRO SE:
+            1- novolimite for menor ou igual à zero
+            2- novolimite for maior que 180
+            3- novolimite não for um número 
+            CASO CONTRÁRIO, admitir novo limite e inserir na div#txtlim
+            */
+            if (novolimite <= 0 || novolimite > 180 || isNaN(novolimite) == true) {
+                window.alert(`Valor inserido é inválido!\nO valor informado tem que estar entre 1 e 180 Km/h.`)
+            } else {
+                limite = novolimite
+                txtlim.innerHTML = `<strong>${limite} Km/h</strong>`
+            }
         }
     </script>
 </body>
+
 </html>
