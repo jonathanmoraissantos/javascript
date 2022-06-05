@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de nacionalidade</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font: normal 16px Helvetica;
+            background-color: lightgoldenrodyellow;
+        }
+
+        header {
+            display: block;
+            color: white;
+            background-image: linear-gradient(to right, rgb(7, 92, 7), rgb(214, 214, 48));
+            padding: 30px;
+            text-align: center;
+            text-shadow: 4px 3px 3px rgba(0, 0, 0, 0.274);
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.192);
+            margin: auto;
+            margin-top: 30px;
+            border-radius: 20px 20px 0px 0px;
+            max-width: 500px;
+        }
+
+        header>h1 {
+            padding-bottom: 20px;
+            font-size: 2.25em;
+        }
+
+        header>p {
+            font-size: 0.5em;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            margin: 0px 15vw 0px 15vw;
+            background-color: white;
+            height: 20vh;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.192);
+            margin: auto;
+            margin-top: 10px;
+            border-radius: 0px 0px 20px 20px;
+            padding: 30px;
+            max-width: 500px;
+        }
+
+        #txtres {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Teste de Nacionalidade</h1>
+        <p>Desenvolvido para o <a href="https://www.cursoemvideo.com" target="_blank" ref="external">CursoemVídeo</a> para descobrir se você é
+            estrangeiro</p>
+    </header>
+
+    <main>
+        <p>País de origem</p>
+        <input type="text" name="txtpais" id="txtpais">
+        <input type="button" value="Verificar" onclick="verificar()">
+        <div id="txtres"></div>
+    </main>
+    <script>
+
+        function verificar() {
+            var txtpais = document.querySelector('input#txtpais').value
+            var txtres = document.querySelector('div#txtres')
+            
+            if(txtpais == ""){
+                txtres.innerHTML = `Insira o nome de um país para prosseguir`
+            }
+            else if (txtpais == 'Brasil') {
+                txtres.innerHTML = `Você é brasileiro!`
+            } else {
+                txtres.innerHTML = `Você é estrangeiro!`
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
