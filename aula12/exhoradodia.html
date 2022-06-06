@@ -11,10 +11,11 @@
             padding: 0;
         }
 
-        body {
+        html, body {
             background-color: lightgreen;
             font: normal 1em Helvetica;
-            height: 97vh;
+            height: 100vh;
+            overflow-y: hidden;
         }
 
         header h1 {
@@ -22,7 +23,7 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.308);
             color: white;
             text-align: center;
-            margin: 20px;
+            padding: 20px;
         }
 
         main p {
@@ -77,13 +78,13 @@
 
 </head>
 
-<body id="body">
+<body>
     <header>
         <h1>Hora do Dia</h1>
     </header>
     <main>
         <div id="conteudo">
-            <p id="hora">Agora são XX horas</p>
+            <p id="hora"></p>
             <div id="imagem"></div>
         </div>
     </main>
