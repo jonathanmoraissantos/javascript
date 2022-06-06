@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hora do Dia</title>
+    <title>Verificador de Idade</title>
     <style>
         * {
             margin: 0;
@@ -13,6 +13,7 @@
 
         html,
         body {
+            background-color: lightseagreen;
             font: normal 1em Helvetica;
             height: 100vh;
             overflow-y: hidden;
@@ -28,9 +29,9 @@
 
         main p {
             font-size: 1.2em;
-            text-align: center;
+            text-align: left;
             text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.288);
-            padding: 30px 20px 20px 20px;
+            padding: 30px 30px 0px 30px;
         }
 
         #conteudo {
@@ -38,8 +39,8 @@
             margin: auto;
             width: 80vw;
             max-width: 600px;
-            height: 350px;
             border-radius: 10px;
+            padding-bottom: 40px;
             box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.384);
         }
 
@@ -84,8 +85,14 @@
     </header>
     <main>
         <div id="conteudo">
-            <p id="hora"></p>
-            <div id="imagem"></div>
+            <p>
+                Ano de nascimento: <input type="number" name="txtano" id="txtano">
+            </p>
+            <p>
+                Sexo: <input type="radio" name="rdsexo" id="rdmasculino" value="masculino">
+                <label for="rdmasculino">Masculino</label>
+            </p>
+            <!-- <div id="imagem"></div> -->
         </div>
     </main>
     <footer>
@@ -94,27 +101,13 @@
 
     <script>
         var fundo = document.querySelector('body')
-        var frase = document.querySelector('p#hora')
         var imagem = document.querySelector('div#imagem')
         var agora = new Date()
         var hora = agora.getHours()
         hora = 23
         frase.innerHTML = `Agora são ${hora} horas`
 
-        if (hora < 6 || hora >= 23) {
-            fundo.style.backgroundImage = 'linear-gradient(to bottom, #0D0D00, #1D2C40)'
-            imagem.style.backgroundImage = "url(images/madrugada.png)"
-        } else if (hora < 12) {
-            fundo.style.background = 'linear-gradient(to bottom, #F2CF8D, #D9C8A9)'
-            imagem.style.backgroundImage = "url(images/manha.png)"
-        } else if (hora <= 18) {
-            fundo.style.backgroundImage = 'linear-gradient(to bottom, #0378A6, #DFE7F2)'
-            imagem.style.backgroundImage = "url(images/tarde.png)"
-        } else {
-            fundo.style.backgroundImage = 'linear-gradient(to bottom, #734002, #BFB188)'
-            imagem.style.backgroundImage = "url(images/noite.png)"
-        }
-    </script>
+</script>
 </body>
 
 </html>
