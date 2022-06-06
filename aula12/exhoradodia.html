@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hora do Dia</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
 
-        body{
-            background-color: darkslategrey;
+        body {
+            background-color: lightgreen;
             font: normal 1em Helvetica;
+            height: 97vh;
         }
-        
-        header h1{
+
+        header h1 {
             font: bolder 2.5em Helvetica;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.308);
             color: white;
@@ -23,14 +25,14 @@
             margin: 20px;
         }
 
-        main p{
+        main p {
             font-size: 1.2em;
             text-align: center;
             text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.288);
             padding: 30px 20px 20px 20px;
         }
-        
-        #conteudo{
+
+        #conteudo {
             background-color: white;
             margin: auto;
             width: 80vw;
@@ -40,16 +42,19 @@
             box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.384);
         }
 
-        #imagem{
+        #imagem {
             background-color: gray;
             border-radius: 50%;
             width: 250px;
             height: 250px;
             text-align: center;
             margin: auto;
+            background-position: center;
+            background-size: cover;
         }
-        
-        footer p, a{
+
+        footer p,
+        a {
             font: bold 1em Helvetica;
             color: white;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.308);
@@ -57,33 +62,55 @@
             text-decoration: none;
         }
 
-        footer p{
+        footer p {
             padding: 15px;
         }
 
-        footer a{
+        footer a {
             font-style: oblique;
         }
 
-        footer a:hover{
+        footer a:hover {
             text-decoration: underline;
         }
-
     </style>
 
 </head>
-<body>
+
+<body id="body">
     <header>
         <h1>Hora do Dia</h1>
     </header>
     <main>
         <div id="conteudo">
             <p id="hora">Agora são XX horas</p>
-            <div id="imagem" ></div>
+            <div id="imagem"></div>
         </div>
     </main>
     <footer>
         <p>© <a href="https://www.cursoemvideo.com" target="_blank" rel="external">CursoemVideo</a></p>
     </footer>
+
+    <script>
+        var fundo = document.querySelector('body')
+        var frase = document.querySelector('p#hora')
+        var imagem = document.querySelector('div#imagem')
+        var agora = new Date()
+        var hora = agora.getHours()
+
+        frase.innerHTML = `Agora são ${hora} horas`
+        
+        if (hora < 12) {
+            fundo.style.background = 'linear-gradient(to bottom, #F2CF8D, #D9C8A9)'
+            imagem.style.backgroundImage = "url(images/manha.png)"
+        } else if (hora <= 18) {
+            fundo.style.backgroundImage = 'linear-gradient(to bottom, #0378A6, #DFE7F2)'
+            imagem.style.backgroundImage = "url(images/tarde.png)"
+        } else {
+            fundo.style.backgroundImage = 'linear-gradient(to bottom, #734002, #BFB188)'
+            imagem.style.backgroundImage = "url(images/noite.png)"
+        }
+    </script>
 </body>
+
 </html>
