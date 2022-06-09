@@ -33,6 +33,17 @@
             width: 40%;
         }
 
+        #img {
+            background-color: transparent;
+            height: 200px;
+            width: 200px;
+            border: 1px solid gray;
+            border-radius: 50%;
+            margin: auto;
+            display: none;
+            background-size: cover;
+        }
+
         footer {
             text-align: center;
         }
@@ -85,16 +96,28 @@
         var txtano = document.querySelector('input#txtano')
         var today = new Date()
         var hoje = today.getFullYear()
-        
-        
+
+
         function verificar() {
             var sexo = document.querySelector('input[name=sexo]:checked').value
+            var imagem = document.querySelector('div#img')
             var ano = Number(txtano.value)
+            var idade = hoje - ano
 
-            if(sexo='m' && ano>1900){
-                res.innerHTML = `<p>Homem com ${hoje-ano} anos de idade.`
+            if (sexo = 'm') {
+                res.innerHTML = `<p>Homem com ${idade} anos de idade.`
+
+                if (ano > 2004) {
+                    img.style.backgroundImage = 'url(images/idade/hjovem.jpg)'
+                    img.style.display = 'block'
+                } else if (ano > 1970) {
+                    img.style.backgroundImage = 'url(images/idade/hmaduro.jpg)'
+                    img.style.display = 'block'
+                } else {
+                    img.style.backgroundImage = 'url(images/idade/hidoso.jpg)'
+                    img.style.display = 'block'
+                }
             }
-
 
         }
     </script>
