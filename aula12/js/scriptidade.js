@@ -18,9 +18,9 @@ function verificar() {
         res.innerHTML = `<p>Homem com  ${idade} anos de idade.`
         img.style.display = 'block'
 
-        if (ano > 2004) {
+        if (idade <= 18) {
             img.style.backgroundImage = 'url(images/idade/hjovem.jpg)'
-        } else if (ano > 1970) {
+        } else if (idade <= 50) {
             img.style.backgroundImage = 'url(images/idade/hmaduro.jpg)'
         } else {
             img.style.backgroundImage = 'url(images/idade/hidoso.jpg)'
@@ -30,9 +30,9 @@ function verificar() {
 
         res.innerHTML = `<p>Mulher com  ${idade} anos de idade.`
         img.style.display = 'block'
-        if (ano > 2004) {
+        if (idade <= 18) {
             img.style.backgroundImage = 'url(images/idade/mjovem.jpg)'
-        } else if (ano > 1970) {
+        } else if (idade <= 50) {
             img.style.backgroundImage = 'url(images/idade/mmadura.jpg)'
         } else {
             img.style.backgroundImage = 'url(images/idade/midosa.jpg)'
