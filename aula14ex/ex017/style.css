@@ -24,6 +24,10 @@ label{
     padding: 15px 0px 15px 0px;
 }
 
+select{
+    width: 150px;
+}
+
 footer{
     color: white;
     text-align: center;

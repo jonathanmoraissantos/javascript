@@ -4,15 +4,19 @@ function calcular(){
 
     var n_numero = Number(f_numero)
 
-    if(f_numero == "" || f_numero == NaN){
+    if(!n_numero){
 
         window.alert(`Selecione um número válido.`)
 
     } else {
-        for(var c=f_numero;c<=0;c--){
-            
-            s_resultado.
+        var txt = ""
+        
+        for(var c=0;c<=10;c++){
+            txt = `${n_numero} x ${c} = <strong>${n_numero*c}</strong>`
+            var option = new Option(txt, txt)
+            s_resultado.add(option)
         }
 
     }
 }
+
