@@ -15,7 +15,7 @@ function calcular() {
         s_resultado.length = 0
 
         //c é igual à zero. enquanto c for menor ou igual à dez = texto recebe string
-        //em seguida, select 's_resultado' adiciona um novo 'option' anônimo (mesmo que var option = new Option(txt, txt)). 
+        //em seguida, select 's_resultado' adiciona um novo 'option' anônimo (mesmo que 'var option = new Option(txt, txt)'). 
         for (var c = 0; c <= 10; c++) {
             txt = `${n_numero} x ${c} = ${n_numero * c}`
             s_resultado.add(new Option(txt, txt))
