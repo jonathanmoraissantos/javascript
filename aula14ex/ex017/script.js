@@ -1,8 +1,8 @@
 function calcular() {
-    var f_numero = document.getElementById('f_numero').value
+    var f_numero = document.getElementById('f_numero')
     var s_resultado = document.getElementById('s_resultado')
 
-    var n_numero = Number(f_numero)
+    var n_numero = Number(f_numero.value)
 
     //Testa se número não é null
     if (f_numero == "" || f_numero == NaN) {
@@ -18,7 +18,7 @@ function calcular() {
         //em seguida, select 's_resultado' adiciona um novo 'option' anônimo (mesmo que 'var option = new Option(txt, txt)'). 
         for (var c = 0; c <= 10; c++) {
             txt = `${n_numero} x ${c} = ${n_numero * c}`
-            s_resultado.add(new Option(txt, txt))
+            s_resultado.add(new Option(txt, `tab${c}`))
         }
 
     }
