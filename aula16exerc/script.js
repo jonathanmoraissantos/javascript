@@ -54,16 +54,13 @@ function finalizar() {
         window.alert(`Não há itens inseridos na listagem.`)
     } else {
 
-        //Média de todos os valores da coleção
-        let c_media = c_soma / c_ordenada.length
-
         //Inserção no HTML
-        div_res.innerHTML = `
+        div_res.innerHTML = `<br>
         &#10003 Ao todo, temos <strong>${c_ordenada.length}</strong> valores cadastrados.<br>
         &#10003 O maior valor informado foi <strong>${maior()}</strong>.<br>
         &#10003 O menor valor informado foi <strong>${menor()}</strong>.<br>
         &#10003 Somando todos os valores, temos <strong>${somar()}</strong>.<br>
-        &#10003 A média dos valores digitados é <strong>${media}</strong>.<br>
+        &#10003 A média dos valores digitados é <strong>${media()}</strong>.<br>
         `
     }
 }
