@@ -23,7 +23,7 @@ label{
     padding: 15px 0px 15px 0px;
 }
 
-select{
+#s_resultado{
     width: 200px;
     margin-top: 20px;
     display:block;

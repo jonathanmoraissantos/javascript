@@ -4,17 +4,32 @@ var verificador = false
 function adicionar() {
     let f_numero = document.getElementById("f_numero")
     let s_resultado = document.getElementById("s_resultado")
+    let div_res = document.getElementById("res")
+    let n_numero = Number(f_numero.value) //conversão de f_numero
 
-    let n_numero = Number(f_numero.value)
-
-    if (n_numero < 1 || n_numero > 100 || n_numero == NaN) {
-        window.alert(`Selecione um número dentro do intervalo válido.`)
-    } else if (colecao.indexOf(n_numero) != -1) {
-        window.alert(`Número já adicionado anteriormente.`)
-    } else {
+    if (isNumero(n_numero) && !inLista(n_numero, colecao)) {
+        div_res.innerHTML = ""
         verificador = true
         colecao.push(n_numero)
         s_resultado.add(new Option(`O valor informado é ${n_numero}`, `${n_numero}`))
+    } else {
+        window.alert(`Valor inválido ou já encontrado na lista.`)
+    }
+}
+
+function isNumero(n) {
+    if (n >= 1 && n <= 100) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function inLista(n, l) {
+    if(l.indexOf(n) != -1){
+        return true
+    } else{
+        return false
     }
 }
 
@@ -48,10 +63,9 @@ function media() {
 
 function finalizar() {
     let div_res = document.getElementById("res")
-    let c_ordenada = colecao.sort()
 
     if (verificador == false) {
-        window.alert(`Não há itens inseridos na listagem.`)
+        window.alert(`Não há itens inseridos na listagem. Adicione valores antes de finalizar.`)
     } else {
         //Inserção no HTML
         div_res.innerHTML = `<br>
