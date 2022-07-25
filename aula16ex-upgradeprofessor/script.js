@@ -7,6 +7,7 @@ function adicionar() {
     let div_res = document.getElementById("res")
     let n_numero = Number(f_numero.value) //conversão de f_numero
 
+    //Se é um número válido e não está na lista
     if (isNumero(n_numero) && !inLista(n_numero, colecao)) {
         div_res.innerHTML = ""
         verificador = true
