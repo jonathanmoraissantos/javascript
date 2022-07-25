@@ -1,5 +1,4 @@
 var colecao = []
-var verificador = false
 
 function adicionar() {
     let f_numero = document.getElementById("f_numero")
@@ -9,13 +8,15 @@ function adicionar() {
 
     //Se é um número válido e não está na lista
     if (isNumero(n_numero) && !inLista(n_numero, colecao)) {
-        div_res.innerHTML = ""
-        verificador = true
         colecao.push(n_numero)
         s_resultado.add(new Option(`O valor informado é ${n_numero}`, `${n_numero}`))
+        div_res.innerHTML = ""
     } else {
         window.alert(`Valor inválido ou já encontrado na lista.`)
     }
+
+    f_numero.value = ""
+    f_numero.focus()
 }
 
 function isNumero(n) {
@@ -27,9 +28,9 @@ function isNumero(n) {
 }
 
 function inLista(n, l) {
-    if(l.indexOf(n) != -1){
+    if (l.indexOf(n) != -1) {
         return true
-    } else{
+    } else {
         return false
     }
 }
@@ -65,16 +66,18 @@ function media() {
 function finalizar() {
     let div_res = document.getElementById("res")
 
-    if (verificador == false) {
+    if (colecao.length == 0) {
         window.alert(`Não há itens inseridos na listagem. Adicione valores antes de finalizar.`)
     } else {
         //Inserção no HTML
-        div_res.innerHTML = `<br>
-        &#10003 Ao todo, temos <strong>${colecao.length}</strong> valores cadastrados.<br>
-        &#10003 O maior valor informado foi <strong>${maior()}</strong>.<br>
-        &#10003 O menor valor informado foi <strong>${menor()}</strong>.<br>
-        &#10003 Somando todos os valores, temos <strong>${somar()}</strong>.<br>
-        &#10003 A média dos valores digitados é <strong>${media()}</strong>.<br>
-        `
+        let total = colecao.length
+
+        div_res.innerHTML = ''
+        div_res.innerHTML += `<br>`
+        div_res.innerHTML += `<p>&#10003 Ao todo, temos <strong>${total}</strong> números cadastrados.</p><br>`
+        div_res.innerHTML += `<p>&#10003 O maior valor informado foi <strong>${maior()}</strong>.</p><br>`
+        div_res.innerHTML += `<p>&#10003 O menor valor informado foi <strong>${menor()}</strong>.</p><br>`
+        div_res.innerHTML += `<p>&#10003 Somando todos os valores, temos <strong>${somar()}</strong>.</p><br>`
+        div_res.innerHTML += `<p>&#10003 A média dos valores digitados é <strong>${media()}</strong>.</p><br>`
     }
 }
